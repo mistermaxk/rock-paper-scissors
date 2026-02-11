@@ -49,12 +49,6 @@ function playGame() {
         console.log(`Score -> Human: ${humanScore} | CPU: ${computerScore}`);
     }
 
-    for (let i = 0; i < 5; i++) {
-        let humanSelection = getHumanChoice().toLowerCase();
-        let computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);    
-    }
-
     return [humanScore, computerScore];
 }
 
