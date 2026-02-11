@@ -79,10 +79,22 @@ function playGame() {
                 resultsP.textContent = "Scissors ties scissors. No points.";
             }
         }
-       scoreP.textContent = `Human: ${humanScore} | CPU: ${computerScore}`;
+        
+        if (humanScore > 4) {
+            scoreP.textContent = `Human Player Wins! ${humanScore} - ${computerScore}`;
+            gameOver();
+        } else if (computerScore > 4) {
+            scoreP.textContent = `CPU Wins! ${computerScore} - ${humanScore}`;
+            gameOver();
+        } else {
+            scoreP.textContent = `Human: ${humanScore} | CPU: ${computerScore}`;
+        }
     }
 
-    return [humanScore, computerScore];
+    function gameOver() {
+        document.body.removeChild(btnContainer);
+        resultsP.textContent = "GAME OVER"
+    }
 }
 
-const scores = playGame();
+playGame();
