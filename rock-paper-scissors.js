@@ -8,6 +8,12 @@ function getComputerChoice() {
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
+    // display score & winner
+    const scoreDisplay = document.createElement("div");
+    const scoreP = document.createElement("p");
+    scoreP.textContent = "Human: 0 | CPU: 0";
+    scoreDisplay.appendChild(scoreP);
+    document.body.appendChild(scoreDisplay);
 
     // human player selection
     const btnContainer = document.createElement("div");
@@ -73,16 +79,10 @@ function playGame() {
                 resultsP.textContent = "Scissors ties scissors. No points.";
             }
         }
-        console.log(`Score -> Human: ${humanScore} | CPU: ${computerScore}`);
+       scoreP.textContent = `Human: ${humanScore} | CPU: ${computerScore}`;
     }
 
     return [humanScore, computerScore];
 }
 
 const scores = playGame();
-
-if (scores[0] > scores[1]) {
-    console.log("Human player wins!");
-} else {
-    console.log("Computer player wins!");
-}
