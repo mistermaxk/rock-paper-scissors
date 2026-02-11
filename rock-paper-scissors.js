@@ -96,6 +96,14 @@ function playGame() {
     function gameOver() {
         document.body.removeChild(btnContainer);
         resultsP.textContent = "GAME OVER"
+        const playAgain = document.createElement("button");
+        playAgain.textContent = "Play again?";
+        playAgain.addEventListener("click", () => {
+            document.body.removeChild(scoreDisplay);
+            document.body.removeChild(resultsDisplay);
+            playGame();
+        });
+        resultsDisplay.appendChild(playAgain);
     }
 }
 
