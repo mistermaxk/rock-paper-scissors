@@ -11,6 +11,7 @@ function playGame() {
     // display score & winner
     const scoreDisplay = document.createElement("div");
     const scoreP = document.createElement("p");
+    scoreP.classList.add("score");
     scoreP.textContent = "Human: 0 | CPU: 0";
     scoreDisplay.appendChild(scoreP);
     document.body.appendChild(scoreDisplay);
@@ -44,6 +45,7 @@ function playGame() {
     // display results
     const resultsDisplay = document.createElement("div");
     const resultsP = document.createElement("p");
+    resultsP.classList.add("results");
     resultsDisplay.appendChild(resultsP);
     document.body.appendChild(resultsDisplay);
 
