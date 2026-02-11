@@ -5,11 +5,6 @@ function getComputerChoice() {
     else if (choice == 3) return "scissors"
 }
 
-function getHumanChoice() {
-    const choice = prompt("Enter rock, scissors, or paper: ");
-    return choice;
-}
-
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
@@ -48,6 +43,32 @@ function playGame() {
         }
         console.log(`Score -> Human: ${humanScore} | CPU: ${computerScore}`);
     }
+
+    // human player selection
+    const btnContainer = document.createElement("div");
+
+    const btnRock = document.createElement("button");
+    btnRock.textContent = "ROCK";
+    btnRock.addEventListener("click", (e) => {
+        playRound("rock", getComputerChoice());
+    });
+
+    const btnPaper = document.createElement("button");
+    btnPaper.textContent = "PAPER";
+    btnPaper.addEventListener("click", (e) => {
+        playRound("paper", getComputerChoice());
+    });
+
+    const btnScissors = document.createElement("button");
+    btnScissors.textContent = "SCISSORS";
+    btnScissors.addEventListener("click", (e) => {
+        playRound("scissors", getComputerChoice());
+    });
+
+    btnContainer.appendChild(btnRock);
+    btnContainer.appendChild(btnPaper);
+    btnContainer.appendChild(btnScissors);
+    document.body.appendChild(btnContainer);
 
     return [humanScore, computerScore];
 }
